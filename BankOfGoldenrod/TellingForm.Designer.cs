@@ -141,6 +141,7 @@
             confirmAddButton.TabIndex = 4;
             confirmAddButton.Text = "Confirm";
             confirmAddButton.UseVisualStyleBackColor = true;
+            confirmAddButton.Click += confirmAddButton_Click;
             // 
             // amountAddTextBox
             // 
@@ -246,6 +247,7 @@
             confirmTransferButton.TabIndex = 5;
             confirmTransferButton.Text = "Confirm";
             confirmTransferButton.UseVisualStyleBackColor = true;
+            confirmTransferButton.Click += confirmTransferButton_Click;
             // 
             // amountTransferTextBox
             // 
@@ -332,6 +334,7 @@
             confirmRemoveButton.TabIndex = 5;
             confirmRemoveButton.Text = "Confirm";
             confirmRemoveButton.UseVisualStyleBackColor = true;
+            confirmRemoveButton.Click += confirmRemoveButton_Click;
             // 
             // amountRemoveTextBox
             // 
@@ -405,6 +408,7 @@
             confirmCloseButton.TabIndex = 5;
             confirmCloseButton.Text = "Confirm";
             confirmCloseButton.UseVisualStyleBackColor = true;
+            confirmCloseButton.Click += confirmCloseButton_Click;
             // 
             // chooseCloseAccountComboBox
             // 
@@ -514,6 +518,7 @@
             createNewAccountHolderButton.TabIndex = 9;
             createNewAccountHolderButton.Text = "Confirm";
             createNewAccountHolderButton.UseVisualStyleBackColor = true;
+            createNewAccountHolderButton.Click += createNewAccountHolderButton_Click;
             // 
             // birthdateFormatLabel
             // 

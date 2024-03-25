@@ -1,9 +1,12 @@
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BankOfGoldenrod
 {
     public partial class WelcomeForm : Form
     {
+        public List<string> theName;
+
         MySqlConnectionStringBuilder str = new MySqlConnectionStringBuilder()
         {
             Server = "localhost",
@@ -40,18 +43,21 @@ namespace BankOfGoldenrod
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("userName", username);
-                    command.Parameters.AddWithValue("password", password);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
-                            MessageBox.Show("Login successful!");
-                            this.Hide();
-                            TellingForm frm = new TellingForm();
-                            frm.ShowDialog();
                             connection.Close();
+                            
+                            MessageBox.Show("Login successful!");
+                            theName = NameCapture();
+                            MessageBox.Show($"{theName[0]} {theName[1]}");
+                            this.Hide();
+                            TellingForm frm = new TellingForm(theName);
+                            frm.ShowDialog();
                         }
                         else
                         {
@@ -77,6 +83,45 @@ namespace BankOfGoldenrod
             this.Hide();
             CreateNewBankTellerForm frm = new CreateNewBankTellerForm();
             frm.ShowDialog();
+        }
+
+        private List<string> NameCapture()
+        {
+            string connectionString = str.ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+            List<string> tellerName = new List<string>();
+
+            string nameQuery = "select firstName, lastName from bank_tellers where userName = @userName and password = @password;";
+            using (MySqlCommand loginCommand = new MySqlCommand(nameQuery, connection))
+            {
+                loginCommand.Parameters.AddWithValue("@userName", username);
+                loginCommand.Parameters.AddWithValue("@password", password);
+
+                using (MySqlDataReader nameReader = loginCommand.ExecuteReader())
+                {
+                    if (nameReader.HasRows)
+                    {
+                        MessageBox.Show("Name captured!");
+                        while (nameReader.Read())
+                        {
+                            tellerName.Add(nameReader[0].ToString());
+                            tellerName.Add(nameReader[1].ToString());
+                        }
+                        MessageBox.Show($"{tellerName[0]}");
+                        MessageBox.Show($"{tellerName[1]}");
+                        connection.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Name not captured!");
+                        connection.Close();
+                    }
+                }
+            }
+            return tellerName;
         }
     }
 }
