@@ -14,7 +14,7 @@ namespace BankOfGoldenrod
             Database = "bank_database",
             UserID = "test",
             Password = "test123",
-            SslMode = MySqlSslMode.Disabled
+            SslMode = MySqlSslMode.Required
         };
         public WelcomeForm()
         {

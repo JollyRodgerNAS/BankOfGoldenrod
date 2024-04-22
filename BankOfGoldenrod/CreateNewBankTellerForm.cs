@@ -22,7 +22,7 @@ namespace BankOfGoldenrod
             Database = "bank_database",
             UserID = "test",
             Password = "test123",
-            SslMode = MySqlSslMode.Disabled
+            SslMode = MySqlSslMode.Required
         };
         public CreateNewBankTellerForm()
         {
@@ -65,6 +65,11 @@ namespace BankOfGoldenrod
                         else
                         {
                             CreateTeller();
+                            firstNameTextBox.ResetText();
+                            lastNameTextBox.ResetText();
+                            usernameTextBox.ResetText();
+                            passwordTextBox.ResetText();
+                            emailTextBox.ResetText();
                         }
                     }
                 }
@@ -74,7 +79,14 @@ namespace BankOfGoldenrod
                 MessageBox.Show("Make sure data is entered into all fields!");
             }
             connection.Close();
-            
+
+        }
+
+        private void returnToLoginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WelcomeForm frm = new WelcomeForm();
+            frm.ShowDialog();
         }
 
         private void CreateTeller()

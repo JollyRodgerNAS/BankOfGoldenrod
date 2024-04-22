@@ -61,8 +61,6 @@
             chooseCloseAccountHolderComboBox = new ComboBox();
             chooseCloseAccountHolderLabel = new Label();
             confirmCloseButton = new Button();
-            chooseCloseAccountComboBox = new ComboBox();
-            chooseCloseAccountLabel = new Label();
             createNewAccountHolderGroupBox = new GroupBox();
             savingsAccountTextBox = new TextBox();
             checkingAccountTextBox = new TextBox();
@@ -82,11 +80,21 @@
             usernameLabel = new Label();
             lastNameLabel = new Label();
             firstNameLabel = new Label();
+            deleteAccountGroupBox = new GroupBox();
+            chooseDeleteAccountHolderComboBox = new ComboBox();
+            chooseDeleteAccountHolderLabel = new Label();
+            confirmDeleteButton = new Button();
+            reopenAccountGroupBox = new GroupBox();
+            chooseReopenAccountHolderComboBox = new ComboBox();
+            chooseReopenAccountHolderLabel = new Label();
+            confirmReopenButton = new Button();
             addFundsGroupBox.SuspendLayout();
             transferFundsGroupBox.SuspendLayout();
             removeFundsGroupBox.SuspendLayout();
             closeAccountGroupBox.SuspendLayout();
             createNewAccountHolderGroupBox.SuspendLayout();
+            deleteAccountGroupBox.SuspendLayout();
+            reopenAccountGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // addFundsGroupBox
@@ -374,8 +382,6 @@
             closeAccountGroupBox.Controls.Add(chooseCloseAccountHolderComboBox);
             closeAccountGroupBox.Controls.Add(chooseCloseAccountHolderLabel);
             closeAccountGroupBox.Controls.Add(confirmCloseButton);
-            closeAccountGroupBox.Controls.Add(chooseCloseAccountComboBox);
-            closeAccountGroupBox.Controls.Add(chooseCloseAccountLabel);
             closeAccountGroupBox.Location = new Point(431, 276);
             closeAccountGroupBox.Name = "closeAccountGroupBox";
             closeAccountGroupBox.Size = new Size(374, 261);
@@ -386,7 +392,7 @@
             // chooseCloseAccountHolderComboBox
             // 
             chooseCloseAccountHolderComboBox.FormattingEnabled = true;
-            chooseCloseAccountHolderComboBox.Location = new Point(182, 28);
+            chooseCloseAccountHolderComboBox.Location = new Point(182, 101);
             chooseCloseAccountHolderComboBox.Name = "chooseCloseAccountHolderComboBox";
             chooseCloseAccountHolderComboBox.Size = new Size(170, 38);
             chooseCloseAccountHolderComboBox.TabIndex = 7;
@@ -394,7 +400,7 @@
             // chooseCloseAccountHolderLabel
             // 
             chooseCloseAccountHolderLabel.AutoSize = true;
-            chooseCloseAccountHolderLabel.Location = new Point(6, 31);
+            chooseCloseAccountHolderLabel.Location = new Point(6, 109);
             chooseCloseAccountHolderLabel.Name = "chooseCloseAccountHolderLabel";
             chooseCloseAccountHolderLabel.Size = new Size(155, 30);
             chooseCloseAccountHolderLabel.TabIndex = 6;
@@ -409,23 +415,6 @@
             confirmCloseButton.Text = "Confirm";
             confirmCloseButton.UseVisualStyleBackColor = true;
             confirmCloseButton.Click += confirmCloseButton_Click;
-            // 
-            // chooseCloseAccountComboBox
-            // 
-            chooseCloseAccountComboBox.FormattingEnabled = true;
-            chooseCloseAccountComboBox.Location = new Point(182, 101);
-            chooseCloseAccountComboBox.Name = "chooseCloseAccountComboBox";
-            chooseCloseAccountComboBox.Size = new Size(170, 38);
-            chooseCloseAccountComboBox.TabIndex = 3;
-            // 
-            // chooseCloseAccountLabel
-            // 
-            chooseCloseAccountLabel.AutoSize = true;
-            chooseCloseAccountLabel.Location = new Point(6, 109);
-            chooseCloseAccountLabel.Name = "chooseCloseAccountLabel";
-            chooseCloseAccountLabel.Size = new Size(170, 30);
-            chooseCloseAccountLabel.TabIndex = 1;
-            chooseCloseAccountLabel.Text = "Choose Account:";
             // 
             // createNewAccountHolderGroupBox
             // 
@@ -447,7 +436,7 @@
             createNewAccountHolderGroupBox.Controls.Add(usernameLabel);
             createNewAccountHolderGroupBox.Controls.Add(lastNameLabel);
             createNewAccountHolderGroupBox.Controls.Add(firstNameLabel);
-            createNewAccountHolderGroupBox.Location = new Point(849, 12);
+            createNewAccountHolderGroupBox.Location = new Point(1205, 12);
             createNewAccountHolderGroupBox.Name = "createNewAccountHolderGroupBox";
             createNewAccountHolderGroupBox.Size = new Size(437, 525);
             createNewAccountHolderGroupBox.TabIndex = 4;
@@ -602,12 +591,92 @@
             firstNameLabel.TabIndex = 0;
             firstNameLabel.Text = "Enter first name:";
             // 
+            // deleteAccountGroupBox
+            // 
+            deleteAccountGroupBox.Controls.Add(chooseDeleteAccountHolderComboBox);
+            deleteAccountGroupBox.Controls.Add(chooseDeleteAccountHolderLabel);
+            deleteAccountGroupBox.Controls.Add(confirmDeleteButton);
+            deleteAccountGroupBox.Location = new Point(811, 12);
+            deleteAccountGroupBox.Name = "deleteAccountGroupBox";
+            deleteAccountGroupBox.Size = new Size(374, 258);
+            deleteAccountGroupBox.TabIndex = 5;
+            deleteAccountGroupBox.TabStop = false;
+            deleteAccountGroupBox.Text = "Delete Account";
+            // 
+            // chooseDeleteAccountHolderComboBox
+            // 
+            chooseDeleteAccountHolderComboBox.FormattingEnabled = true;
+            chooseDeleteAccountHolderComboBox.Location = new Point(182, 101);
+            chooseDeleteAccountHolderComboBox.Name = "chooseDeleteAccountHolderComboBox";
+            chooseDeleteAccountHolderComboBox.Size = new Size(170, 38);
+            chooseDeleteAccountHolderComboBox.TabIndex = 7;
+            // 
+            // chooseDeleteAccountHolderLabel
+            // 
+            chooseDeleteAccountHolderLabel.AutoSize = true;
+            chooseDeleteAccountHolderLabel.Location = new Point(6, 109);
+            chooseDeleteAccountHolderLabel.Name = "chooseDeleteAccountHolderLabel";
+            chooseDeleteAccountHolderLabel.Size = new Size(155, 30);
+            chooseDeleteAccountHolderLabel.TabIndex = 6;
+            chooseDeleteAccountHolderLabel.Text = "Choose Holder:";
+            // 
+            // confirmDeleteButton
+            // 
+            confirmDeleteButton.Location = new Point(87, 208);
+            confirmDeleteButton.Name = "confirmDeleteButton";
+            confirmDeleteButton.Size = new Size(171, 44);
+            confirmDeleteButton.TabIndex = 5;
+            confirmDeleteButton.Text = "Confirm";
+            confirmDeleteButton.UseVisualStyleBackColor = true;
+            confirmDeleteButton.Click += confirmDeleteButton_Click;
+            // 
+            // reopenAccountGroupBox
+            // 
+            reopenAccountGroupBox.Controls.Add(chooseReopenAccountHolderComboBox);
+            reopenAccountGroupBox.Controls.Add(chooseReopenAccountHolderLabel);
+            reopenAccountGroupBox.Controls.Add(confirmReopenButton);
+            reopenAccountGroupBox.Location = new Point(811, 276);
+            reopenAccountGroupBox.Name = "reopenAccountGroupBox";
+            reopenAccountGroupBox.Size = new Size(374, 261);
+            reopenAccountGroupBox.TabIndex = 8;
+            reopenAccountGroupBox.TabStop = false;
+            reopenAccountGroupBox.Text = "Re-Open Account";
+            // 
+            // chooseReopenAccountHolderComboBox
+            // 
+            chooseReopenAccountHolderComboBox.FormattingEnabled = true;
+            chooseReopenAccountHolderComboBox.Location = new Point(182, 101);
+            chooseReopenAccountHolderComboBox.Name = "chooseReopenAccountHolderComboBox";
+            chooseReopenAccountHolderComboBox.Size = new Size(170, 38);
+            chooseReopenAccountHolderComboBox.TabIndex = 7;
+            // 
+            // chooseReopenAccountHolderLabel
+            // 
+            chooseReopenAccountHolderLabel.AutoSize = true;
+            chooseReopenAccountHolderLabel.Location = new Point(6, 109);
+            chooseReopenAccountHolderLabel.Name = "chooseReopenAccountHolderLabel";
+            chooseReopenAccountHolderLabel.Size = new Size(155, 30);
+            chooseReopenAccountHolderLabel.TabIndex = 6;
+            chooseReopenAccountHolderLabel.Text = "Choose Holder:";
+            // 
+            // confirmReopenButton
+            // 
+            confirmReopenButton.Location = new Point(87, 209);
+            confirmReopenButton.Name = "confirmReopenButton";
+            confirmReopenButton.Size = new Size(171, 46);
+            confirmReopenButton.TabIndex = 5;
+            confirmReopenButton.Text = "Confirm";
+            confirmReopenButton.UseVisualStyleBackColor = true;
+            confirmReopenButton.Click += confirmReopenButton_Click;
+            // 
             // TellingForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Goldenrod;
-            ClientSize = new Size(1298, 549);
+            ClientSize = new Size(1654, 549);
+            Controls.Add(reopenAccountGroupBox);
+            Controls.Add(deleteAccountGroupBox);
             Controls.Add(createNewAccountHolderGroupBox);
             Controls.Add(closeAccountGroupBox);
             Controls.Add(removeFundsGroupBox);
@@ -628,6 +697,10 @@
             closeAccountGroupBox.PerformLayout();
             createNewAccountHolderGroupBox.ResumeLayout(false);
             createNewAccountHolderGroupBox.PerformLayout();
+            deleteAccountGroupBox.ResumeLayout(false);
+            deleteAccountGroupBox.PerformLayout();
+            reopenAccountGroupBox.ResumeLayout(false);
+            reopenAccountGroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -643,11 +716,9 @@
         private Label chooseTransferAccountLabel;
         private Label amountRemoveLabel;
         private Label chooseRemoveAccountLabel;
-        private Label chooseCloseAccountLabel;
         private ComboBox chooseAddAccountComboBox;
         private ComboBox chooseTransferAccountComboBox;
         private ComboBox chooseRemoveAccountComboBox;
-        private ComboBox chooseCloseAccountComboBox;
         private Button confirmAddButton;
         private TextBox amountAddTextBox;
         private Button confirmTransferButton;
@@ -687,5 +758,13 @@
         private ComboBox recieveTransferComboBox;
         private Label recieveTransferAccountLabel;
         private Label transferDescriptionLabel;
+        private GroupBox deleteAccountGroupBox;
+        private ComboBox chooseDeleteAccountHolderComboBox;
+        private Label chooseDeleteAccountHolderLabel;
+        private Button confirmDeleteButton;
+        private GroupBox reopenAccountGroupBox;
+        private ComboBox chooseReopenAccountHolderComboBox;
+        private Label chooseReopenAccountHolderLabel;
+        private Button confirmReopenButton;
     }
 }

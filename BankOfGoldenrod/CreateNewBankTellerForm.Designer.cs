@@ -40,6 +40,7 @@
             passwordTextBox = new TextBox();
             emailTextBox = new TextBox();
             createButton = new Button();
+            returnToLoginButton = new Button();
             SuspendLayout();
             // 
             // enterInfoLabel
@@ -142,12 +143,23 @@
             createButton.UseVisualStyleBackColor = true;
             createButton.Click += createButton_Click;
             // 
+            // returnToLoginButton
+            // 
+            returnToLoginButton.Location = new Point(31, 342);
+            returnToLoginButton.Name = "returnToLoginButton";
+            returnToLoginButton.Size = new Size(179, 50);
+            returnToLoginButton.TabIndex = 12;
+            returnToLoginButton.Text = "Return to Login";
+            returnToLoginButton.UseVisualStyleBackColor = true;
+            returnToLoginButton.Click += returnToLoginButton_Click;
+            // 
             // CreateNewBankTellerForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Goldenrod;
             ClientSize = new Size(727, 424);
+            Controls.Add(returnToLoginButton);
             Controls.Add(createButton);
             Controls.Add(emailTextBox);
             Controls.Add(passwordTextBox);
@@ -183,5 +195,6 @@
         private TextBox passwordTextBox;
         private TextBox emailTextBox;
         private Button createButton;
+        private Button returnToLoginButton;
     }
 }
